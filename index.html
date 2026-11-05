@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Betheny Lynn Reid, author of Under the Autumn Moon</title>
+<meta name="description" content="A homepage idea for Betheny Lynn Reid and Under the Autumn Moon, made by Sparsh Saini. Not her official site.">
+<meta property="og:title" content="Under the Autumn Moon, by Betheny Lynn Reid">
+<meta property="og:image" content="https://sparshsainied-prog.github.io/bethenylynnreid/img/cover.jpg">
+<link rel="icon" href="img/moon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#24106a;      /* top of the cover sky */
+  --dusk:#7a2fae;       /* mid sky */
+  --rose:#d65fc0;       /* the glow behind the clock tower */
+  --gold:#f6ea4b;       /* the title yellow */
+  --stone:#efe6f6;      /* lilac-white of the cobbles and name */
+  --ink:#1a0d3d;
+  --sans:"Montserrat",system-ui,sans-serif;
+  --script:"Allura",cursive;
+}
+*{box-sizing:border-box}
+html{background:var(--night)}
+body{margin:0;background:var(--night);color:var(--stone);font:400 1.06rem/1.65 var(--sans)}
+img{display:block;max-width:100%}
+a{color:var(--gold)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:var(--ink);padding:.5rem 1rem;z-index:10}
+.skip:focus{left:8px}
+
+/* hero */
+.hero{height:340vh;position:relative}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--night)}
+.book{position:absolute;left:50%;top:50%;width:min(56vh,88vw);aspect-ratio:1600/2560;
+  transform:translate(calc(-50% + var(--tx,0px)),calc(-50% + var(--ty,0px))) scale(var(--z,1));transform-origin:var(--ox,50%) var(--oy,50%);will-change:transform}
+.book img{position:absolute;inset:0;width:100%;height:100%}
+.book .moon{width:17.25%;height:auto;left:16.56%;top:20%;transform:translate(-50%,-50%) translateY(var(--my,0%));will-change:transform}
+
+.book .skyline{top:23.44%;width:56.25%;height:35.16%}
+.wordmark{position:absolute;left:max(16px,calc(50% + 12vw - 28vh - 24rem));bottom:clamp(20px,8vh,80px);max-width:22rem;opacity:var(--wo,1);transform:translateY(calc((1 - var(--wo,1)) * 14px))}
+.wordmark h1{margin:0;font:600 clamp(1.5rem,3vw,2.2rem)/1.1 var(--sans);text-transform:uppercase;color:var(--gold)}
+.wordmark h1 span{display:block;font:400 clamp(2.4rem,5vw,3.4rem)/1 var(--script);text-transform:none;color:#fff;margin:.1em 0}
+.wordmark p{margin:.6rem 0 1rem;font-size:.95rem}
+.btn{display:inline-block;font:600 .85rem/1 var(--sans);text-transform:uppercase;letter-spacing:.08em;text-decoration:none;
+  padding:.95rem 1.4rem;border:2px solid var(--gold);color:var(--ink);background:var(--gold)}
+.btn.ghost{background:transparent;color:var(--gold)}
+.lead{position:absolute;right:clamp(16px,4vw,56px);top:clamp(20px,6vh,64px);max-width:15rem;text-align:right;
+  font:400 clamp(1.8rem,3vw,2.4rem)/1.1 var(--script);color:#fff;opacity:var(--lo,1)}
+
+/* sections */
+section.band{padding:clamp(56px,10vh,110px) clamp(16px,6vw,96px)}
+.blurb{background:linear-gradient(var(--night),#3a1690)}
+.blurb .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,22rem);gap:clamp(24px,5vw,72px);max-width:68rem;margin:auto;align-items:start}
+.blurb h2,.poems h2,.about h2{font:600 clamp(1.4rem,2.6vw,2rem)/1.15 var(--sans);text-transform:uppercase;color:var(--gold);margin:0 0 1rem}
+.blurb p{max-width:38rem}
+.blurb .cover{box-shadow:0 18px 40px rgba(10,4,30,.55)}
+.buy{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
+.poems{background:#3a1690;color:#fff}
+.poems .wrap{max-width:52rem;margin:auto}
+.poem{font:400 clamp(2rem,4.4vw,3.2rem)/1.2 var(--script);margin:0 0 .8rem}
+.poems cite{font-style:normal;font-size:.9rem;color:var(--stone)}
+.poems ul{list-style:none;padding:0;margin:2.2rem 0 0;border-top:1px solid rgba(246,234,75,.35)}
+.poems li{padding:.8rem 0;border-bottom:1px solid rgba(246,234,75,.35);display:flex;justify-content:space-between;gap:1rem}
+.about{background:var(--stone);color:var(--ink)}
+.about .wrap{max-width:44rem;margin-left:clamp(0px,10vw,160px)}
+.about h2{color:var(--dusk)}
+.about a{color:#5a1f9c}
+.about a:focus-visible{outline-color:#5a1f9c}
+footer{padding:28px clamp(16px,6vw,96px);font-size:.82rem;background:var(--ink);color:#cbbfe0}
+
+@media (max-width:760px){
+  .book{width:min(92vw,52vh)}
+  .lead{display:none}
+  .wordmark{left:16px;right:16px;bottom:20px;max-width:none}
+  .blurb .wrap{grid-template-columns:1fr}
+  .blurb .cover{max-width:15rem;order:-1}
+}
+@media (prefers-reduced-motion:reduce){
+  @media (max-width:760px){.book{--z:.7 !important;--ty:-13vh !important}}
+  .book{--z:1 !important}
+  .book .moon{--my:0% !important}
+  .wordmark{--wo:1 !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#book">Skip to the book</a>
+<main>
+<section class="hero" aria-label="Under the Autumn Moon">
+  <div class="stage">
+    <div class="book" id="book3d">
+      <img src="img/plate.jpg" srcset="img/plate-m.jpg 800w, img/plate.jpg 1600w" sizes="(max-width:760px) 92vw, 56vh" alt="The cover of Under the Autumn Moon: a couple walking hand in hand over London cobbles toward the clock tower at dusk, his guitar on his back." fetchpriority="high">
+      <img class="moon" src="img/moon.png" alt="">
+      <img class="skyline" src="img/skyline.png" alt="">
+    </div>
+    <p class="lead" aria-hidden="true">It started at a north London bookstore</p>
+    <div class="wordmark">
+      <h1>Under the <span>Autumn</span> Moon</h1>
+      <p>A love story by Betheny Lynn Reid</p>
+      <a class="btn" href="https://www.amazon.com/dp/B0FWYZG5GL">Buy the book</a>
+    </div>
+  </div>
+</section>
+
+<section class="band blurb" id="book">
+  <div class="wrap">
+    <div>
+      <h2>Lexi and Paddy</h2>
+      <p>Lexi Maxwell writes bestsellers, and nobody knows her face. Paddy May is the guitarist she had a crush on as a teenager. They meet in a quiet London bookstore, where he is holding her latest book and offers his left hand to shake, because she doesn't have a right.</p>
+      <p>A morning coffee turns into a walk that lasts for days, and a dance under the moon. To stay together, they will have to get through fame, grief and the ghosts of the past.</p>
+      <div class="buy">
+        <a class="btn" href="https://www.amazon.com/dp/B0FWYZG5GL">Amazon</a>
+        <a class="btn ghost" href="https://bethenylynnreid.com/under-the-autumn-moon/">Read chapter one</a>
+      </div>
+    </div>
+    <img class="cover" src="img/cover.jpg" width="640" height="1024" loading="lazy" alt="Under the Autumn Moon cover, by Betheny Lynn Reid">
+  </div>
+</section>
+
+<section class="band poems">
+  <div class="wrap">
+    <h2>The poems</h2>
+    <p class="poem">I must touch the bark of a tree or the blade of grass</p>
+    <cite>From "Each Day", April 2026</cite>
+    <ul>
+      <li><span>The Sun magazine</span><span>Published</span></li>
+      <li><span>Big Bend Literary Magazine</span><span>Published</span></li>
+      <li><span>Inner Moonlight, The Wild Detectives, Dallas</span><span>Readings</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band about">
+  <div class="wrap">
+    <h2>Betheny</h2>
+    <p>Betheny Lynn Reid is an award-winning poet, essayist and author of short fiction. She spent years in communications, public affairs and higher education, and now writes the stories her characters ask her to tell. She rides her bike everywhere, hikes, travels, and lives with her husband and two cats.</p>
+    <p><a href="https://bethenylynnreid.com/">bethenylynnreid.com</a></p>
+  </div>
+</section>
+</main>
+<footer>A homepage idea made by Sparsh Saini for Betheny Lynn Reid. Not her official site. Cover art and words belong to her and her artist.</footer>
+
+<script>
+(function(){
+  var hero=document.querySelector('.hero'),book=document.getElementById('book3d'),stage=document.querySelector('.stage');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var ticking=false,wm=document.querySelector(".wordmark");
+  function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+  function draw(){
+    ticking=false;var phone=innerWidth<=760;book.style.setProperty("--tx","0px");book.style.setProperty("--ty","0px");
+    var r=hero.getBoundingClientRect(),span=hero.offsetHeight-innerHeight;
+    var p=Math.min(1,Math.max(0,-r.top/span));
+    var cam=ease(Math.min(1,p/.7));
+    var z0=phone?2.6:2.3,z1=phone?.7:1,fin=ease(Math.min(1,Math.max(0,(p-.7)/.2)));
+    book.style.setProperty("--z",(z0+(z1-z0)*cam).toFixed(4));
+    book.style.setProperty(phone?"--ty":"--tx",(fin*(phone?-innerHeight*.13:innerWidth*.12)).toFixed(1)+"px");
+    var moon=ease(Math.min(1,Math.max(0,(p-.12)/.66)));
+    book.style.setProperty('--my',((1-moon)*300).toFixed(1)+'%');
+    stage.style.setProperty('--lo',(1-Math.min(1,p/.25)).toFixed(3));
+    var wo=Math.min(1,Math.max(0,(p-.78)/.15));stage.style.setProperty('--wo',wo.toFixed(3));wm.style.visibility=wo>.02?"visible":"hidden";
+  }
+  book.style.setProperty('--ox','49%');book.style.setProperty('--oy','70%');
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(draw)}},{passive:true});
+  addEventListener('resize',draw);draw();
+})();
+</script>
+</body>
+</html>
